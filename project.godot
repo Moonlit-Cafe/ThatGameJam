@@ -1,0 +1,48 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="GameJamTemplate"
+config/features=PackedStringArray("4.4", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[autoload]
+
+SaveManager="*res://autoloads/saving/save_manager.gd"
+GameGlobal="*res://autoloads/general/game_global.gd"
+GameGlobalEvents="*res://autoloads/general/game_global_events.gd"
+MusicManager="*res://autoloads/audio/music_manager.gd"
+SoundManager="*res://autoloads/audio/sound_manager.gd"
+
+[display]
+
+window/size/resizable=false
+window/stretch/mode="viewport"
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "pink",
+"res://autoloads/": "yellow",
+"res://mechanics/": "red",
+"res://ui/": "green",
+"res://utility/": "purple"
+}
+
+[global_group]
+
+saveable="Nodes that should have the \"save()\" function and can thus be saved as data to a .save file"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
