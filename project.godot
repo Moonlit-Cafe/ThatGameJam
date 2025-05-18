@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="GameJamTemplate"
+config/name="Regrowth"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -25,7 +25,9 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
-directories/dch_directory={}
+directories/dch_directory={
+"hungry_kid": "res://mechanics/dialogic/characters/hungry_kid.dch"
+}
 directories/dtl_directory={}
 
 [display]
