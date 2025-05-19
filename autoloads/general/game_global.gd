@@ -1,6 +1,7 @@
 extends Node
 
 #region Variables
+# TODO: Actually incorportate into Main Camera when that's ready
 var zoom_level := 1
 #endregion
 

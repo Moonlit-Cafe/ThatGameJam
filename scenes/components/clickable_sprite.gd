@@ -2,6 +2,8 @@ class_name ClickableSprite extends Area2D
 
 signal interact
 
+# TODO: Document all of this
+
 @export var sprite : Texture2D
 @export var collision_rect : RectangleShape2D
 

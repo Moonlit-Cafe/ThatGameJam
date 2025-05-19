@@ -10,6 +10,7 @@ extends PathFollow2D
 
 var _paused = false
 
+# TODO: Cleanup for better generalization
 func _ready() -> void:
 	$ClickableSprite.interact.connect(_on_interacted)
 	$Timer.timeout.connect(_on_timer_timeout)
@@ -26,6 +27,7 @@ func _on_interacted() -> void:
 	else:
 		print("Hello There.")
 
+# TODO: Most likely remove this in favor of a Global Timer that acts like a 'tick'
 func _on_timer_timeout() -> void:
 	if _paused:
 		return
