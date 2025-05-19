@@ -17,5 +17,6 @@ curve = SubResource("Curve2D_lbhrr")
 [node name="Ant" parent="AntPath" instance=ExtResource("1_yqjtg")]
 position = Vector2(210, -8)
 rotation = 2.30514
+wait_point = Vector2(15, 124)
 
 [node name="MainCamera" parent="." instance=ExtResource("2_lnu2h")]

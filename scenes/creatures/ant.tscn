@@ -1,16 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://ba7gfuw2umsgg"]
+[gd_scene load_steps=7 format=3 uid="uid://ba7gfuw2umsgg"]
 
 [ext_resource type="Script" uid="uid://5vou620iy0qf" path="res://scenes/creatures/ant.gd" id="1_3jnhr"]
 [ext_resource type="PackedScene" uid="uid://dpt3knd77164o" path="res://scenes/components/clickable_sprite.tscn" id="1_df2jt"]
 [ext_resource type="Texture2D" uid="uid://dte04b52x7svy" path="res://assets/textures/sprites/ant.png" id="2_3jnhr"]
+[ext_resource type="PackedScene" uid="uid://b16x0tadtpp2w" path="res://mechanics/components/dialog_component.tscn" id="4_d8rla"]
+[ext_resource type="Resource" uid="uid://psnj77n0pefh" path="res://mechanics/dialogic/timelines/ygg/ant_reflection.dtl" id="5_i0alx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1kpwp"]
 
-[node name="Ant" type="PathFollow2D"]
+[node name="Ant" type="PathFollow2D" node_paths=PackedStringArray("d_comp")]
 script = ExtResource("1_3jnhr")
+d_comp = NodePath("DialogComponent")
 
 [node name="ClickableSprite" parent="." instance=ExtResource("1_df2jt")]
 sprite = ExtResource("2_3jnhr")
 collision_rect = SubResource("RectangleShape2D_1kpwp")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="DialogComponent" parent="." instance=ExtResource("4_d8rla")]
+dialog = ExtResource("5_i0alx")
