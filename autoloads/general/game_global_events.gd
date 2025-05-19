@@ -1,3 +1,4 @@
 extends Node
 
-signal start_event(event_id: Genum.Events)
+signal pause_game
+signal resume_game

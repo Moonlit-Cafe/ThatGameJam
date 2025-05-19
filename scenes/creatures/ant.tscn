@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://ba7gfuw2umsgg"]
+
+[ext_resource type="Script" uid="uid://5vou620iy0qf" path="res://scenes/creatures/ant.gd" id="1_3jnhr"]
+[ext_resource type="PackedScene" uid="uid://dpt3knd77164o" path="res://scenes/components/clickable_sprite.tscn" id="1_df2jt"]
+[ext_resource type="Texture2D" uid="uid://dte04b52x7svy" path="res://assets/textures/sprites/ant.png" id="2_3jnhr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1kpwp"]
+
+[node name="Ant" type="PathFollow2D"]
+script = ExtResource("1_3jnhr")
+
+[node name="ClickableSprite" parent="." instance=ExtResource("1_df2jt")]
+sprite = ExtResource("2_3jnhr")
+collision_rect = SubResource("RectangleShape2D_1kpwp")
+
+[node name="Timer" type="Timer" parent="."]

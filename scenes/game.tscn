@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwmmo371nvjmw"]
+
+[ext_resource type="PackedScene" uid="uid://ba7gfuw2umsgg" path="res://scenes/creatures/ant.tscn" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://epcnwyxtxrf7" path="res://scenes/camera/main_camera.tscn" id="2_lnu2h"]
+
+[sub_resource type="Curve2D" id="Curve2D_lbhrr"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 210, -8, 0, 0, 0, 0, 145, 64, 0, 0, 0, 0, 15, 124, 0, 0, 0, 0, -177, 108, 0, 0, 0, 0, -304, -8)
+}
+point_count = 5
+
+[node name="Game" type="Node2D"]
+
+[node name="AntPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_lbhrr")
+
+[node name="Ant" parent="AntPath" instance=ExtResource("1_yqjtg")]
+position = Vector2(210, -8)
+rotation = 2.30514
+
+[node name="MainCamera" parent="." instance=ExtResource("2_lnu2h")]
