@@ -9,9 +9,8 @@ enum BusID {
 }
 
 # TODO: Change this up to reflect ALL of the actual events
-enum Events {
-	NOMAD,
-	STORM_DESTRUCTION,
-	BEAST,
-	NATURAL,
+enum CreatureInteraction {
+	EMPTY,
+	GATHERING,
+	GIFTING
 }
