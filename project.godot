@@ -47,7 +47,9 @@ FmodManager="*res://addons/fmod/FmodManager.gd"
 directories/dch_directory={
 "hungry_kid": "res://mechanics/dialogic/characters/hungry_kid.dch"
 }
-directories/dtl_directory={}
+directories/dtl_directory={
+"ant_reflection": "res://mechanics/dialogic/timelines/ygg/ant_reflection.dtl"
+}
 
 [display]
 

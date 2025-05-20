@@ -1,5 +1,10 @@
 extends Node
 
+#region Variables
+# TODO: Actually incorportate into Main Camera when that's ready
+var zoom_level := 1
+#endregion
+
 #region Loading Up
 func _ready() -> void:
 	# Loading up sounds and then deleting the sound_loader as it's no longer necessary
