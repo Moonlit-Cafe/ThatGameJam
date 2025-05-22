@@ -37,3 +37,5 @@ func _on_timer_timeout() -> void:
 		$Timer.start(wait_time)
 	else:
 		$Timer.start(time_delta)
+	
+	print(position)

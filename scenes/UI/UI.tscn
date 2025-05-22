@@ -1,8 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqctsvrqsrl1b"]
+[gd_scene load_steps=6 format=3 uid="uid://dqctsvrqsrl1b"]
 
-[ext_resource type="Theme" uid="uid://b7jtywvjeu42y" path="res://assets/themes/main.tres" id="1_0wsoe"]
+[ext_resource type="Theme" uid="uid://b7jtywvjeu42y" path="res://assets/themes/main.tres" id="1_f5cxw"]
+[ext_resource type="Script" uid="uid://cv8uss810xsfm" path="res://scenes/ui/ui.gd" id="2_aac20"]
+[ext_resource type="PackedScene" uid="uid://bm212mwdp0sxe" path="res://scenes/ui/game_world_viewport.tscn" id="2_f5cxw"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_0wsoe"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_aac20"]
+viewport_path = NodePath("GameView")
 
 [node name="Ui" type="Control"]
 layout_mode = 3
@@ -11,7 +16,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_0wsoe")
+theme = ExtResource("1_f5cxw")
+script = ExtResource("2_aac20")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -20,20 +26,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_0wsoe")
+theme = ExtResource("1_f5cxw")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
 [node name="MainMenuButtons" type="GridContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme = ExtResource("1_0wsoe")
+theme = ExtResource("1_f5cxw")
 columns = 6
 
 [node name="System" type="Button" parent="VBoxContainer/HBoxContainer/MainMenuButtons"]
 custom_minimum_size = Vector2(32, 28)
 layout_mode = 2
-theme = ExtResource("1_0wsoe")
+theme = ExtResource("1_f5cxw")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_0wsoe")
 text = "DEBUG"
@@ -41,7 +47,7 @@ text = "DEBUG"
 [node name="Options" type="Button" parent="VBoxContainer/HBoxContainer/MainMenuButtons"]
 custom_minimum_size = Vector2(32, 28)
 layout_mode = 2
-theme = ExtResource("1_0wsoe")
+theme = ExtResource("1_f5cxw")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_0wsoe")
 text = "Options"
@@ -49,7 +55,7 @@ text = "Options"
 [node name="Options2" type="Button" parent="VBoxContainer/HBoxContainer/MainMenuButtons"]
 custom_minimum_size = Vector2(32, 28)
 layout_mode = 2
-theme = ExtResource("1_0wsoe")
+theme = ExtResource("1_f5cxw")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_0wsoe")
 text = "Options"
@@ -57,7 +63,7 @@ text = "Options"
 [node name="Options3" type="Button" parent="VBoxContainer/HBoxContainer/MainMenuButtons"]
 custom_minimum_size = Vector2(32, 28)
 layout_mode = 2
-theme = ExtResource("1_0wsoe")
+theme = ExtResource("1_f5cxw")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_0wsoe")
 text = "Options"
@@ -66,7 +72,7 @@ flat = true
 [node name="Options4" type="Button" parent="VBoxContainer/HBoxContainer/MainMenuButtons"]
 custom_minimum_size = Vector2(32, 28)
 layout_mode = 2
-theme = ExtResource("1_0wsoe")
+theme = ExtResource("1_f5cxw")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_0wsoe")
 text = "Options"
@@ -75,7 +81,7 @@ flat = true
 [node name="Options5" type="Button" parent="VBoxContainer/HBoxContainer/MainMenuButtons"]
 custom_minimum_size = Vector2(32, 28)
 layout_mode = 2
-theme = ExtResource("1_0wsoe")
+theme = ExtResource("1_f5cxw")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_0wsoe")
 text = "Options"
@@ -84,7 +90,7 @@ flat = true
 [node name="Options6" type="Button" parent="VBoxContainer/HBoxContainer/MainMenuButtons"]
 custom_minimum_size = Vector2(32, 28)
 layout_mode = 2
-theme = ExtResource("1_0wsoe")
+theme = ExtResource("1_f5cxw")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_0wsoe")
 text = "???"
@@ -93,7 +99,7 @@ flat = true
 [node name="Options7" type="Button" parent="VBoxContainer/HBoxContainer/MainMenuButtons"]
 custom_minimum_size = Vector2(32, 28)
 layout_mode = 2
-theme = ExtResource("1_0wsoe")
+theme = ExtResource("1_f5cxw")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_0wsoe")
 text = "???"
@@ -107,13 +113,13 @@ dragger_visibility = 2
 
 [node name="MainMenuButtons2" type="GridContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme = ExtResource("1_0wsoe")
+theme = ExtResource("1_f5cxw")
 columns = 6
 
 [node name="System" type="Button" parent="VBoxContainer/HBoxContainer/MainMenuButtons2"]
 custom_minimum_size = Vector2(32, 28)
 layout_mode = 2
-theme = ExtResource("1_0wsoe")
+theme = ExtResource("1_f5cxw")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_0wsoe")
 text = "System"
@@ -121,7 +127,7 @@ text = "System"
 [node name="Options" type="Button" parent="VBoxContainer/HBoxContainer/MainMenuButtons2"]
 custom_minimum_size = Vector2(32, 28)
 layout_mode = 2
-theme = ExtResource("1_0wsoe")
+theme = ExtResource("1_f5cxw")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_0wsoe")
 text = "Options"
@@ -129,7 +135,7 @@ text = "Options"
 [node name="Options2" type="Button" parent="VBoxContainer/HBoxContainer/MainMenuButtons2"]
 custom_minimum_size = Vector2(32, 28)
 layout_mode = 2
-theme = ExtResource("1_0wsoe")
+theme = ExtResource("1_f5cxw")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_0wsoe")
 text = "Options"
@@ -137,7 +143,7 @@ text = "Options"
 [node name="Options3" type="Button" parent="VBoxContainer/HBoxContainer/MainMenuButtons2"]
 custom_minimum_size = Vector2(32, 28)
 layout_mode = 2
-theme = ExtResource("1_0wsoe")
+theme = ExtResource("1_f5cxw")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_0wsoe")
 text = "Options"
@@ -146,7 +152,7 @@ flat = true
 [node name="Options4" type="Button" parent="VBoxContainer/HBoxContainer/MainMenuButtons2"]
 custom_minimum_size = Vector2(32, 28)
 layout_mode = 2
-theme = ExtResource("1_0wsoe")
+theme = ExtResource("1_f5cxw")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_0wsoe")
 text = "Options"
@@ -155,7 +161,7 @@ flat = true
 [node name="Options5" type="Button" parent="VBoxContainer/HBoxContainer/MainMenuButtons2"]
 custom_minimum_size = Vector2(32, 28)
 layout_mode = 2
-theme = ExtResource("1_0wsoe")
+theme = ExtResource("1_f5cxw")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_0wsoe")
 text = "Options"
@@ -164,7 +170,7 @@ flat = true
 [node name="Options6" type="Button" parent="VBoxContainer/HBoxContainer/MainMenuButtons2"]
 custom_minimum_size = Vector2(32, 28)
 layout_mode = 2
-theme = ExtResource("1_0wsoe")
+theme = ExtResource("1_f5cxw")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_0wsoe")
 text = "???"
@@ -173,7 +179,7 @@ flat = true
 [node name="Options7" type="Button" parent="VBoxContainer/HBoxContainer/MainMenuButtons2"]
 custom_minimum_size = Vector2(32, 28)
 layout_mode = 2
-theme = ExtResource("1_0wsoe")
+theme = ExtResource("1_f5cxw")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_0wsoe")
 text = "???"
@@ -184,67 +190,72 @@ layout_mode = 2
 
 [node name="MAIN VIEW" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("1_0wsoe")
+theme = ExtResource("1_f5cxw")
 
 [node name="TabContainer" type="TabContainer" parent="VBoxContainer/VBoxContainer/MAIN VIEW"]
 custom_minimum_size = Vector2(304, 0)
 layout_mode = 2
 size_flags_vertical = 3
-theme = ExtResource("1_0wsoe")
-current_tab = 1
+theme = ExtResource("1_f5cxw")
+current_tab = 0
 tabs_visible = false
 
 [node name="Sprout" type="Panel" parent="VBoxContainer/VBoxContainer/MAIN VIEW/TabContainer"]
-visible = false
 layout_mode = 2
-theme = ExtResource("1_0wsoe")
+mouse_filter = 1
+theme = ExtResource("1_f5cxw")
 metadata/_tab_index = 0
 
+[node name="GameWorldViewport" parent="VBoxContainer/VBoxContainer/MAIN VIEW/TabContainer/Sprout" instance=ExtResource("2_f5cxw")]
+layout_mode = 1
+texture_normal = SubResource("ViewportTexture_aac20")
+
 [node name="Sapling" type="Panel" parent="VBoxContainer/VBoxContainer/MAIN VIEW/TabContainer"]
+visible = false
 layout_mode = 2
-theme = ExtResource("1_0wsoe")
+theme = ExtResource("1_f5cxw")
 metadata/_tab_index = 1
 
 [node name="Tree" type="Panel" parent="VBoxContainer/VBoxContainer/MAIN VIEW/TabContainer"]
 visible = false
 layout_mode = 2
-theme = ExtResource("1_0wsoe")
+theme = ExtResource("1_f5cxw")
 metadata/_tab_index = 2
 
 [node name="Forest" type="Panel" parent="VBoxContainer/VBoxContainer/MAIN VIEW/TabContainer"]
 visible = false
 layout_mode = 2
-theme = ExtResource("1_0wsoe")
+theme = ExtResource("1_f5cxw")
 metadata/_tab_index = 3
 
 [node name="Bonds" type="Panel" parent="VBoxContainer/VBoxContainer/MAIN VIEW/TabContainer"]
 visible = false
 layout_mode = 2
-theme = ExtResource("1_0wsoe")
+theme = ExtResource("1_f5cxw")
 metadata/_tab_index = 4
 
 [node name="Guide" type="Panel" parent="VBoxContainer/VBoxContainer/MAIN VIEW/TabContainer"]
 visible = false
 layout_mode = 2
-theme = ExtResource("1_0wsoe")
+theme = ExtResource("1_f5cxw")
 metadata/_tab_index = 5
 
 [node name="DataPanels" type="VBoxContainer" parent="VBoxContainer/VBoxContainer/MAIN VIEW"]
 clip_contents = true
 custom_minimum_size = Vector2(848, 0)
 layout_mode = 2
-theme = ExtResource("1_0wsoe")
+theme = ExtResource("1_f5cxw")
 
 [node name="Panel" type="Panel" parent="VBoxContainer/VBoxContainer/MAIN VIEW/DataPanels"]
 custom_minimum_size = Vector2(304, 300)
 layout_mode = 2
 size_flags_vertical = 3
-theme = ExtResource("1_0wsoe")
+theme = ExtResource("1_f5cxw")
 
 [node name="DIALOGIC GOES HERE" type="Panel" parent="VBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 296)
 layout_mode = 2
-theme = ExtResource("1_0wsoe")
+theme = ExtResource("1_f5cxw")
 
 [node name="GAME" type="ReferenceRect" parent="."]
 visible = false
@@ -257,11 +268,13 @@ offset_top = -2.00003
 offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_0wsoe")
+mouse_filter = 2
+theme = ExtResource("1_f5cxw")
 border_width = 2.0
 metadata/_edit_use_anchors_ = true
 
 [node name="DATA" type="ReferenceRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.763889
@@ -272,7 +285,7 @@ offset_top = -2.00003
 offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_0wsoe")
+theme = ExtResource("1_f5cxw")
 border_width = 2.0
 metadata/_edit_use_anchors_ = true
 
@@ -285,6 +298,7 @@ anchor_bottom = 0.402778
 offset_top = -3.05176e-05
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_0wsoe")
+mouse_filter = 2
+theme = ExtResource("1_f5cxw")
 border_width = 2.0
 metadata/_edit_use_anchors_ = true

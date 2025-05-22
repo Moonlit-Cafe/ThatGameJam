@@ -6,4 +6,4 @@ class_name DialogComponent extends Node
 
 func start() -> void:
 	if dialog:
-		Dialogic.start(dialog)
+		GameGlobal.start_dialog(dialog)

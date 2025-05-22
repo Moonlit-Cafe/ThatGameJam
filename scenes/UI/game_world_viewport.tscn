@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bm212mwdp0sxe"]
+
+[ext_resource type="Script" uid="uid://bnbkdq1kbhwe3" path="res://scenes/ui/game_world_viewport.gd" id="1_dxkns"]
+[ext_resource type="Script" uid="uid://dln7ph0ywlofr" path="res://scenes/ui/game_view.gd" id="2_ix6qg"]
+[ext_resource type="PackedScene" uid="uid://bwmmo371nvjmw" path="res://scenes/game.tscn" id="2_tkqv2"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ix6qg"]
+viewport_path = NodePath("GameView")
+
+[node name="GameWorldViewport" type="TextureButton" node_paths=PackedStringArray("viewport")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = SubResource("ViewportTexture_ix6qg")
+script = ExtResource("1_dxkns")
+viewport = NodePath("GameView")
+
+[node name="GameView" type="SubViewport" parent="."]
+disable_3d = true
+size = Vector2i(304, 300)
+script = ExtResource("2_ix6qg")
+
+[node name="Game" parent="GameView" instance=ExtResource("2_tkqv2")]
+
+[connection signal="gui_input" from="." to="." method="_on_input_event"]

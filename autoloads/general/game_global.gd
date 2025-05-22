@@ -24,6 +24,9 @@ func _ready() -> void:
 #region Helpers
 func delay(time: float) -> void:
 	await get_tree().create_timer(time).timeout
+
+func start_dialog(timeline: DialogicTimeline) -> void:
+	Dialogic.start(timeline)
 #endregion
 
 #region Signal Callbacks

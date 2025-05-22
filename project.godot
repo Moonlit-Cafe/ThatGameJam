@@ -50,8 +50,8 @@ directories/dch_directory={
 directories/dtl_directory={
 "ant_reflection": "res://mechanics/dialogic/timelines/ygg/ant_reflection.dtl"
 }
-layout/style_list=["res://assets/themes/dialogic_basic.tres"]
-layout/default_style="res://assets/themes/dialogic_basic.tres"
+layout/style_list=[]
+layout/default_style=""
 variables={}
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
