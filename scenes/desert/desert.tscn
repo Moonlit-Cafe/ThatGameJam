@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://b51gfyapjcepj"]
+
+[ext_resource type="Script" uid="uid://bhy760tv26k1i" path="res://scenes/desert/desert.gd" id="1_j3dpx"]
+[ext_resource type="Texture2D" uid="uid://bgl5ccqsttxrp" path="res://assets/backgrounds/Desert-Background.png" id="2_ddavc"]
+[ext_resource type="Texture2D" uid="uid://bsyu4s856l1oj" path="res://assets/backgrounds/Desert-Sun.png" id="3_u2ej3"]
+[ext_resource type="Texture2D" uid="uid://ctpwlod46kuce" path="res://assets/backgrounds/Desert-Clouds-1.png" id="4_buj5l"]
+[ext_resource type="Texture2D" uid="uid://c5lol3a0rx1yl" path="res://assets/backgrounds/Desert-Clouds-2.png" id="5_ddavc"]
+[ext_resource type="Texture2D" uid="uid://doqvgs4wp6ove" path="res://assets/backgrounds/Desert-Foreground.png" id="5_i86ho"]
+
+[node name="Desert" type="Node2D"]
+script = ExtResource("1_j3dpx")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_offset = Vector2(29.195, 0)
+
+[node name="DesertBackground" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/DesertBackground"]
+position = Vector2(960, 540)
+scale = Vector2(6, 6)
+texture = ExtResource("2_ddavc")
+
+[node name="DesertSun" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/DesertSun"]
+position = Vector2(960, 540)
+scale = Vector2(6, 6)
+texture = ExtResource("3_u2ej3")
+
+[node name="DesertClouds" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/DesertClouds"]
+position = Vector2(960, 540)
+scale = Vector2(6, 6)
+texture = ExtResource("4_buj5l")
+
+[node name="DesertClouds2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 1)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/DesertClouds2"]
+position = Vector2(960, 540)
+scale = Vector2(6, 6)
+texture = ExtResource("5_ddavc")
+
+[node name="DesertForeground" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/DesertForeground"]
+position = Vector2(960, 540)
+scale = Vector2(6, 6)
+texture = ExtResource("5_i86ho")
