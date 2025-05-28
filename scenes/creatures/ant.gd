@@ -38,4 +38,4 @@ func _on_timer_timeout() -> void:
 	else:
 		$Timer.start(time_delta)
 	
-	print(position)
+	print("Position: %s" % position)

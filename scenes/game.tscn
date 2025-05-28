@@ -5,7 +5,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_lbhrr"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 210, -8, 0, 0, 0, 0, 145, 64, 0, 0, 0, 0, 15, 124, 0, 0, 0, 0, -177, 108, 0, 0, 0, 0, -304, -8)
+"points": PackedVector2Array(0, 0, 0, 90, 200, 0, 90, 0, -90, 0, 0, 200, 0, 90, 0, -90, -200, 0, -90, 0, 90, 0, 0, -200, 0, -90, 0, 0, 200, 0)
 }
 point_count = 5
 
@@ -14,10 +14,9 @@ point_count = 5
 [node name="MainCamera" parent="." instance=ExtResource("2_lnu2h")]
 
 [node name="AntPath" type="Path2D" parent="."]
-position = Vector2(95, -90)
 curve = SubResource("Curve2D_lbhrr")
 
 [node name="Ant" parent="AntPath" instance=ExtResource("1_yqjtg")]
-position = Vector2(210, -8)
-rotation = 2.30514
+position = Vector2(200, 0)
+rotation = 1.5708
 wait_point = Vector2(15, 124)
