@@ -34,5 +34,3 @@ func _on_game_tick() -> void:
 		$Timer.start(wait_time)
 	else:
 		$Timer.start(time_delta)
-	
-	print("Position: %s" % position)

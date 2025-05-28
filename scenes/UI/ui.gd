@@ -51,9 +51,6 @@ func _on_game_tick() -> void:
 		push_error("Not all labels are properly set...")
 		return
 	
-	print(YggdrasilManager.essence)
-	print(YggdrasilManager.ess_fl)
-	
 	essence_label.text = "Essence: %s" % YggdrasilManager.essence
 	dew_label.text = "Dew: %s" % YggdrasilManager.dew
 	hill_label.text = "Anthills: %s" % YggdrasilManager.hills

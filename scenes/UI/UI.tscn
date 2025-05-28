@@ -94,6 +94,11 @@ size_flags_vertical = 3
 text = "Debug"
 text_overrun_behavior = 4
 
+[node name="Tech" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Tech"
+
 [node name="DataPanel" type="TabContainer" parent="." node_paths=PackedStringArray("button_container", "pause_tick_button")]
 custom_minimum_size = Vector2(600, 600)
 offset_left = 2142.0
@@ -104,9 +109,9 @@ current_tab = 0
 tabs_visible = false
 script = ExtResource("2_yb1mt")
 button_container = NodePath("../MarginContainer/VBoxContainer")
-pause_tick_button = NodePath("MarginContainer/VBoxContainer/VBoxContainer/TickPause")
+pause_tick_button = NodePath("Debug/VBoxContainer/VBoxContainer/TickPause")
 
-[node name="MarginContainer" type="MarginContainer" parent="DataPanel"]
+[node name="Debug" type="MarginContainer" parent="DataPanel"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
@@ -114,21 +119,26 @@ theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 metadata/_tab_index = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="DataPanel/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="DataPanel/Debug"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="DataPanel/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="DataPanel/Debug/VBoxContainer"]
 layout_mode = 2
 text = "Debug Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="DataPanel/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="DataPanel/Debug/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TickPause" type="Button" parent="DataPanel/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="TickPause" type="Button" parent="DataPanel/Debug/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Toggle Game Ticks: ticking"
 
-[connection signal="pressed" from="DataPanel/MarginContainer/VBoxContainer/VBoxContainer/TickPause" to="DataPanel" method="_on_pause_game_tick"]
+[node name="Tech" type="MarginContainer" parent="DataPanel"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[connection signal="pressed" from="DataPanel/Debug/VBoxContainer/VBoxContainer/TickPause" to="DataPanel" method="_on_pause_game_tick"]

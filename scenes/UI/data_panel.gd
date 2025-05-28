@@ -25,13 +25,13 @@ func _on_button_pressed(idx: int) -> void:
 		_parent.open_data_panel()
 	elif current_tab == idx:
 		_parent.close_data_panel()
-	else:
-		current_tab = idx
+	
+	current_tab = idx
 #endregion
 
 #region Debug Callbacks
 func _on_pause_game_tick() -> void:
-	GameGlobal.paused != GameGlobal.paused
+	GameGlobal.paused = !GameGlobal.paused
 	
 	if GameGlobal.paused:
 		pause_tick_button.text = "Toggle Game Ticks: not ticking"
