@@ -1,12 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://dqctsvrqsrl1b"]
+[gd_scene load_steps=3 format=3 uid="uid://dqctsvrqsrl1b"]
 
 [ext_resource type="Script" uid="uid://v7eqn2y87mmt" path="res://scenes/UI/ui.gd" id="1_suays"]
+[ext_resource type="Script" uid="uid://3qjtrtfmxnba" path="res://scenes/UI/data_panel.gd" id="2_yb1mt"]
 
-[node name="UI" type="CanvasLayer" node_paths=PackedStringArray("data_panel")]
+[node name="UI" type="CanvasLayer" node_paths=PackedStringArray("data_panel", "essence_label", "dew_label", "hill_label", "burrow_label", "nest_label")]
 script = ExtResource("1_suays")
 data_panel = NodePath("DataPanel")
+essence_label = NodePath("ResourceBox/HBoxContainer/Essence")
+dew_label = NodePath("ResourceBox/HBoxContainer/Dew")
+hill_label = NodePath("ResourceBox/HBoxContainer/Hills")
+burrow_label = NodePath("ResourceBox/HBoxContainer/Burrows")
+nest_label = NodePath("ResourceBox/HBoxContainer/Nests")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -33,7 +40,7 @@ theme_override_constants/margin_right = 64
 [node name="HBoxContainer" type="HBoxContainer" parent="ResourceBox"]
 layout_mode = 2
 
-[node name="Vitality" type="Label" parent="ResourceBox/HBoxContainer"]
+[node name="Essence" type="Label" parent="ResourceBox/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Essence: 0"
@@ -87,11 +94,41 @@ size_flags_vertical = 3
 text = "Debug"
 text_overrun_behavior = 4
 
-[node name="DataPanel" type="TabContainer" parent="."]
+[node name="DataPanel" type="TabContainer" parent="." node_paths=PackedStringArray("button_container", "pause_tick_button")]
 custom_minimum_size = Vector2(600, 600)
 offset_left = 2142.0
 offset_top = 169.0
 offset_right = 2742.0
 offset_bottom = 769.0
+current_tab = 0
+tabs_visible = false
+script = ExtResource("2_yb1mt")
+button_container = NodePath("../MarginContainer/VBoxContainer")
+pause_tick_button = NodePath("MarginContainer/VBoxContainer/VBoxContainer/TickPause")
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Debug" to="." method="_on_debug_toggled"]
+[node name="MarginContainer" type="MarginContainer" parent="DataPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DataPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DataPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Debug Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DataPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TickPause" type="Button" parent="DataPanel/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Toggle Game Ticks: ticking"
+
+[connection signal="pressed" from="DataPanel/MarginContainer/VBoxContainer/VBoxContainer/TickPause" to="DataPanel" method="_on_pause_game_tick"]

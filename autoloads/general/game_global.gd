@@ -3,6 +3,7 @@ extends Node
 #region Variables
 # TODO: Actually incorportate into Main Camera when that's ready
 var zoom_level := 1
+var paused := false
 #endregion
 
 #region Nodes
@@ -31,6 +32,9 @@ func start_dialog(timeline: DialogicTimeline) -> void:
 
 #region Signal Callbacks
 func _on_global_timeout() -> void:
+	if paused:
+		await GameGlobalEvents.resume_game
+	
 	GameGlobalEvents.game_tick.emit()
 	global_timer.start(1)
 #endregion

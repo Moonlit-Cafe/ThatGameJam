@@ -3,17 +3,21 @@ extends Node
 # TODO: Render to a ui and also change based on interact events. Probably pass through GGE
 
 #region Variables
-var max_vitality : int = 2
-var vitality : int:
+var max_esssence : int = 2
+var essence : int:
 	get:
-		return vit_fl / 10
+		return ess_fl / 1
 	set(value):
-		vit_fl = value * 10
-var vit_fl : float = 0.0
-var vitality_regen : float = 0.1
+		ess_fl = value * 1.
+var ess_fl : float = 0.0
+var essence_regen : float = 0.1
+var dew : int = 0
+var hills : int = 0
+var burrows : int = 0
+var nests : int = 0
 #endregion
 
 #region Built-Ins
 func _ready() -> void:
-	GameGlobalEvents.game_tick.connect(func(): vit_fl += vitality_regen)
+	GameGlobalEvents.game_tick.connect(func(): ess_fl += essence_regen)
 #endregion

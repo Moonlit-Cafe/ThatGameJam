@@ -39,6 +39,7 @@ GameGlobal="*res://autoloads/general/game_global.gd"
 GameGlobalEvents="*res://autoloads/general/game_global_events.gd"
 MusicManager="*res://autoloads/audio/music_manager.gd"
 SoundManager="*res://autoloads/audio/sound_manager.gd"
+YggdrasilManager="*res://autoloads/mechanics/yggdrasil_manager.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 FmodManager="*res://addons/fmod/FmodManager.gd"
 
@@ -50,8 +51,8 @@ directories/dch_directory={
 directories/dtl_directory={
 "ant_reflection": "res://mechanics/dialogic/timelines/ygg/ant_reflection.dtl"
 }
-layout/style_list=[]
-layout/default_style=""
+layout/style_list=["res://mechanics/dialogic/style/regrowth_style.tres"]
+layout/default_style="res://mechanics/dialogic/style/regrowth_style.tres"
 variables={}
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01

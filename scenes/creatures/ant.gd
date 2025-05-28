@@ -12,9 +12,7 @@ var _paused = false
 
 # TODO: Cleanup for better generalization
 func _ready() -> void:
-	$ClickableSprite.interact.connect(_on_interacted)
-	$Timer.timeout.connect(_on_timer_timeout)
-	$Timer.start(time_delta)
+	GameGlobalEvents.game_tick.connect(_on_game_tick)
 	GameGlobalEvents.pause_game.connect(func(): _paused = true)
 	GameGlobalEvents.resume_game.connect(func(): _paused = false)
 
@@ -27,8 +25,7 @@ func _on_interacted() -> void:
 	else:
 		print("Hello There.")
 
-# TODO: Most likely remove this in favor of a Global Timer that acts like a 'tick'
-func _on_timer_timeout() -> void:
+func _on_game_tick() -> void:
 	if _paused:
 		return
 	
