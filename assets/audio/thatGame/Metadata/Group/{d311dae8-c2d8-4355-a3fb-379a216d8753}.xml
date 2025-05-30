@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="MixerGroup" id="{d311dae8-c2d8-4355-a3fb-379a216d8753}">
+		<property name="name">
+			<value>non-ducking</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{0c52e45b-1f6a-4249-afb0-26e041973b23}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{b43c5ff7-840a-48a1-9c30-f1b6659cba02}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{a414d9a4-c773-4c93-8d1d-d0e76624f603}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{0c52e45b-1f6a-4249-afb0-26e041973b23}">
+		<relationship name="effects">
+			<destination>{d48d13c6-22f9-4435-92c2-cff5e1709450}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{b43c5ff7-840a-48a1-9c30-f1b6659cba02}" />
+	<object class="MixerBusFader" id="{d48d13c6-22f9-4435-92c2-cff5e1709450}" />
+</objects>
