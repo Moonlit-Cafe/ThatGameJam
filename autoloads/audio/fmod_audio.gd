@@ -24,6 +24,8 @@ var sfx_count : int = 3
 #region Built-Ins
 func _ready() -> void:
 	_create_event_holders()
+	
+	GameGlobalEvents.volume_changed.connect(_on_volume_changed)
 
 func _process(_delta: float) -> void:
 	_check_events()
@@ -57,26 +59,49 @@ func play(sound: StringName) -> void:
 	if sound_path.contains("ost"):
 		for event in range(ost_count):
 			if not event:
-				event_holder[event][0] = FmodServer.create_event_instance(sound_path)
-				event_holder[event][0].volume = AudioServer.get_bus_volume_linear(1)
-				event_holder[event][1] = sound
-				event_holder[event][0].start()
+				_create_sound(sound, event, 1)
 				return
 	
-	if sound_path.contains("sfx"):
+	if sound_path.contains("sfx") and not sound_path.contains("menu"):
 		for event in range(sfx_count):
 			if not event:
-				event_holder[event + (ost_count)][0] = FmodServer.create_event_instance(sound_path)
-				if sound_path.contains("menu"):
-					event_holder[event + (ost_count)][0].volume = AudioServer.get_bus_volume_linear(3)
-				else:
-					event_holder[event + (ost_count)][0].volume = AudioServer.get_bus_volume_linear(2)
-				event_holder[event + (ost_count)][1] = sound
-				event_holder[event + (ost_count)][0].start()
+				_create_sound(sound, event + ost_count)
+				return
+	else:
+		for event in range(sfx_count):
+			if not event:
+				_create_sound(sound, event + ost_count, 3)
 				return
 
 func stop(sound: StringName) -> void:
 	for event in event_holder:
 		if event[1] == sound:
 			event[0].stop()
+#endregion
+
+#region Helpers
+func _create_sound(sound: StringName, event_value: int, bus_id: int = 2) -> void:
+	event_holder[event_value][0] = FmodServer.create_event_instance(event_list.get(sound))
+	event_holder[event_value][0].volume = AudioServer.get_bus_volume_linear(bus_id)
+	event_holder[event_value][1] = sound
+	event_holder[event_value][0].start()
+#endregion
+
+#region Signal Callbacks
+func _on_volume_changed(bus_id: int) -> void:
+	var allowed_to_change := false
+	
+	for event in range(event_holder.size()):
+		if event < ost_count and bus_id == 1:
+			allowed_to_change = true
+		elif event < sfx_count and bus_id == 2:
+			if event_holder[event][1].contains("menu"):
+				continue
+			allowed_to_change = true
+		elif event < sfx_count and bus_id == 3 and event_holder[event][1].contains("menu"):
+			allowed_to_change = true
+		
+		if allowed_to_change:
+			event_holder[event][0].volume = AudioServer.get_bus_volume_linear(bus_id)
+			allowed_to_change = false
 #endregion

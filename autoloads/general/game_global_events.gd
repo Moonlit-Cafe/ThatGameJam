@@ -2,9 +2,15 @@ extends Node
 
 var event : FmodEvent
 
+#region GameState Signals
 signal pause_game
 signal resume_game
 signal game_tick
+#endregion
+
+#region Settings Signals
+signal volume_changed(bus_id: int)
+#endregion
 
 func _ready() -> void:
 	Dialogic.timeline_started.connect(_on_game_paused)
