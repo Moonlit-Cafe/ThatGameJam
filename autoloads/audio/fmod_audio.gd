@@ -32,11 +32,11 @@ func _process(_delta: float) -> void:
 #region Setup
 func _create_event_holders() -> void:
 	for ost_event in range(ost_count):
-		var event : FmodEvent
+		var event : FmodEvent = null
 		event_holder.append([event, ""])
 	
 	for sfx_event in range(sfx_count):
-		var event : FmodEvent
+		var event : FmodEvent = null
 		event_holder.append([event, ""])
 
 func _check_events() -> void:
@@ -58,6 +58,7 @@ func play(sound: StringName) -> void:
 		for event in range(ost_count):
 			if not event:
 				event_holder[event][0] = FmodServer.create_event_instance(sound_path)
+				event_holder[event][0].volume = AudioServer.get_bus_volume_linear(1)
 				event_holder[event][1] = sound
 				event_holder[event][0].start()
 				return
@@ -66,6 +67,10 @@ func play(sound: StringName) -> void:
 		for event in range(sfx_count):
 			if not event:
 				event_holder[event + (ost_count)][0] = FmodServer.create_event_instance(sound_path)
+				if sound_path.contains("menu"):
+					event_holder[event + (ost_count)][0].volume = AudioServer.get_bus_volume_linear(3)
+				else:
+					event_holder[event + (ost_count)][0].volume = AudioServer.get_bus_volume_linear(2)
 				event_holder[event + (ost_count)][1] = sound
 				event_holder[event + (ost_count)][0].start()
 				return
