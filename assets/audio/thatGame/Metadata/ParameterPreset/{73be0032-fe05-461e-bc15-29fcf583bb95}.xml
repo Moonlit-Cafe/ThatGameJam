@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{73be0032-fe05-461e-bc15-29fcf583bb95}">
+		<property name="name">
+			<value>dsStageMaster</value>
+		</property>
+		<relationship name="folder">
+			<destination>{deb12085-58cf-4a6e-8940-e1745433b7b8}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{1562e562-8672-4848-bef1-b8aa88e9bc2b}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{1562e562-8672-4848-bef1-b8aa88e9bc2b}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>4</value>
+		</property>
+		<property name="isGlobal">
+			<value>true</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="isExposedRecursively">
+			<value>false</value>
+		</property>
+	</object>
+</objects>

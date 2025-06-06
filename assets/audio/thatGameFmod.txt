@@ -1,0 +1,26 @@
+parameters:
+
+"dsStageMaster" - controls the version of the main theme (0 = seed, 1 = sprout, 2 = sapling, 3 = tree)
+"dsStageSeek" - follows dsStageMaster with delay in order to fade in the new layers (shouldn't be interacted with in the code)
+"volMaster" - controls master volume for volume slider (0-1, starts at 0.8)
+"volOst" - controls musix volume for volume slider (0-1, starts at 0.8)
+"volSfx" - controls sfx volume for volume slider (0-1, starts at 0.8)
+
+ost events:
+
+"desertSunrise" - main gameplay theme for the entire gameplay loop (exept dialogue) that changes based on the "dsStageMaster" parameter, should play for 3-5 loops and then stop for 2-3 minutes (fsde out occurs automatically when killing the event)
+"dialogue" - for the dialogic sections. will fade out when killing the event
+"menu1" (old hope theme) - main menu (exact part of menu to be decided)
+"menu2" (old sorrow theme) - main menu (exact part of menu to be decided)
+
+sxf events:
+
+"ant" - randomized ant sound
+"falcon" - randomized falcon sound
+"grassClick" - randomized sound for clicking grassy areas
+"leafClick" - randomized sound for clicking parts of the plant that have leaves
+"menuClick" - pressing menu/ui buttons
+"menuHover" - hovering over menu/ui buttons
+"mouse" - randomized mouse sounds
+"sandClick" - randomized sound for clicking sandy areas
+"wind" - 20ish second clip of wind (fades out automatically when event is killed)

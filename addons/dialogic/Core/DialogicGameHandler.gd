@@ -213,7 +213,7 @@ func start_timeline(timeline:Variant, label_or_idx:Variant = "") -> void:
 	for event in current_timeline_events:
 		event.dialogic = self
 	current_event_idx = -1
-
+	
 	if typeof(label_or_idx) == TYPE_STRING:
 		if label_or_idx:
 			if has_subsystem('Jump'):
@@ -221,7 +221,7 @@ func start_timeline(timeline:Variant, label_or_idx:Variant = "") -> void:
 	elif typeof(label_or_idx) == TYPE_INT:
 		if label_or_idx >-1:
 			current_event_idx = label_or_idx -1
-
+	
 	timeline_started.emit()
 	handle_next_event()
 

@@ -20,3 +20,10 @@ curve = SubResource("Curve2D_lbhrr")
 position = Vector2(210, -8)
 rotation = 2.30514
 wait_point = Vector2(15, 124)
+
+[node name="MainCamera" parent="." instance=ExtResource("2_lnu2h")]
+
+[node name="Listener" type="FmodListener2D" parent="."]
+
+[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
+bank_paths = ["res://assets/audio/thatGame/Build/Desktop//Master.strings.bank", "res://assets/audio/thatGame/Build/Desktop//Master.bank"]
