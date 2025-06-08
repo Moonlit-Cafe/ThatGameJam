@@ -13,7 +13,7 @@ var _parent : CanvasLayer
 
 #region Built Ins
 func _ready() -> void:
-	_parent = get_parent()
+	_parent = get_parent().get_parent()
 	
 	for button_idx in range(button_container.get_child_count()):
 		button_container.get_child(button_idx).pressed.connect(_on_button_pressed.bind(button_idx))

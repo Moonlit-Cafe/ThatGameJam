@@ -2,6 +2,8 @@ extends CanvasLayer
 
 #region Node References
 @export var data_panel : TabContainer
+@export var bg : Control
+@export var tech_page : Control
 
 @export_category("Labels")
 @export var essence_label : Label
@@ -12,6 +14,9 @@ extends CanvasLayer
 #endregion
 
 #region Variables
+
+var immersion_button : TextureButton
+
 var _open_position : Vector2
 var _close_position : Vector2
 var _bottom_margin : int = 100
@@ -22,7 +27,7 @@ var _right_margin : int = 10
 func _ready() -> void:
 	_update_positions()
 	close_data_panel()
-	
+	immersion_button = $ImmersionButton
 	GameGlobalEvents.game_tick.connect(_on_game_tick)
 #endregion
 
@@ -36,6 +41,17 @@ func close_data_panel() -> void:
 	var tween = get_tree().create_tween().bind_node(self)
 	tween.tween_property(data_panel, "position", _close_position, 0.5)
 	data_panel.open = false
+	
+func toggle_tech_tree() -> void:
+	var tween = get_tree().create_tween().set_parallel(true).bind_node(self)
+	if immersion_button.button_pressed:
+		tween.tween_property($"Background MAIN/FADER", "self_modulate:a",1,.85)
+		tween.tween_property(tech_page, "global_position",Vector2(0,0),1)
+		tween.tween_property($ResourceBox, "global_position:y",0,1)
+	else : 
+		tween.tween_property($"Background MAIN/FADER", "self_modulate:a",0,.85)
+		tween.tween_property(tech_page, "global_position",Vector2(0,1080),1)
+		tween.tween_property($ResourceBox, "global_position:y",1016,1)
 #endregion
 
 #region Private Methods
